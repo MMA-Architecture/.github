@@ -10,6 +10,4 @@ Quick start guide:
 
 # Structure of comunication Workflow
 
-Module => Service.T => Middleware => Module 1
-                                  => Module 2
-                                  ...
+Module => Service.T => Middleware => Module N+1...
