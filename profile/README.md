@@ -74,9 +74,3 @@ namespace Data
   }
 }
 ```
-Module
-
-# Structure of comunication Workflow
-
-Module => Service.T => Middleware => Module N+1...
-
