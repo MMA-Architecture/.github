@@ -3,7 +3,7 @@
 
 Setup:
 1. Add [MMA](https://github.com/MMA-Architecture/mma.git) with PackageManager or Sourcetree as Submodule.
-2. Add others modules (example => [MMA.Scenes](https://github.com/MMA-Architecture/mma.scenes.git)
+2. Add others modules (example => [MMA.Scenes](https://github.com/MMA-Architecture/mma.scenes.git) )
 3. implement the Symbol of keys in 'ProjectSettings>Player>OtherSettings>ScriptCompilation>ScriptingDefineSymbols => MMA_INT || MMA_STRING
 (MMA_STRING is better for prototyping and MMA_INT for a better performance, maybe in next releases will exist MMA_BYTE for best performance)
 
