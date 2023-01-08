@@ -2,6 +2,10 @@
 
 MMA is an architectural framework for managing communications that do not communicate directly with each other.
 
+Setup:
+implement the Symbol of keys in 'ProjectSettings>Player>OtherSettings>ScriptCompilation>ScriptingDefineSymbols => MMA_INT || MMA_STRING'
+with this you can use MMA_INT to create int keys or MMA_STRING to use string codes (MMA_STRING is better for prototyping and MMA_INT for a better performance)  
+
 Quick start guide:
 1. Middleware is a static partial class, use it for Subscribe and publish Action, Func, Coroutines, Task
 2. Module is a sealed partial class, used to as a federated manager in a Scene to handle a specification
