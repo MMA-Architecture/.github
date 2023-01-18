@@ -39,7 +39,7 @@ namespace Data { // Used to store the information used in this project (because 
 }
 ```
 
-# Example 'MMA_ATTRIBUTE' && 'MMA_STRING'
+# Easy Mode Example 'MMA_ATTRIBUTE' && 'MMA_STRING'
 ```cs
 using MMA;
 using MMA.MiddlewareExtensions;
