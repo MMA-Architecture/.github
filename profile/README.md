@@ -45,12 +45,13 @@ namespace Data { // Used to store the information used in this project (because 
   {
     //Where subscribe all 'SubscribeAttribute' methods
     protected override void OnSubscription(bool condition) => this.OnSubscriptionAttribute(condition); 
-
-    //Invoke Middleware with a string key
-    private void Start() => "KeyExample".Invoke(); 
     
     //It's called by Middleware
     [Subscribe("KeyExample")] private void Publish_0() => Debug.Log($"Publish 0"); 
+  }
+  public sealed partial class TestMono : MonoBehaviour
+  {
+      private void Start() => "KeyExample".Invoke(); 
   }
 ```
 
