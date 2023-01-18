@@ -41,6 +41,9 @@ namespace Data { // Used to store the information used in this project (because 
 
 # Example 'MMA_ATTRIBUTE' && 'MMA_STRING'
 ```cs
+using MMA;
+using MMA.MiddlewareExtensions;
+using MMA.Attribute;
   public sealed partial class TestModule : Module
   {
     //Where subscribe all 'SubscribeAttribute' methods
