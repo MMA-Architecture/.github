@@ -12,33 +12,6 @@ Quick start guide:
 2. Module is used as a federated manager in a Scene to handle a specification
 3. Application works as a entity of a Module of the scene, these are GameObject/s, children of the Module GameObject
 
-# Example
-```cs
-namespace Core.MenuHeaderUIModule { //module who suscribe to a key, waiting for response 'OnChangeGold'
-  public sealed partial class MenuHeaderUIModule : Module {
-    [SerializeField] private Text text_gold = default;
-    protected override void OnSubscription(bool condition) => Middleware<float>.Subscribe_Publish(condition, Data.Key.OnChangeGold, OnChangeGold);
-    private void OnChangeGold(float gold) => text_gold.text = gold.ToString();
-  }
-}
-namespace Core.FakeModule{ //module to simulate the money obtention
-  public sealed partial class FakeModule : Module {  
-    protected override void OnSubscription(bool condition){}
-    void Start() =>Service.Common.OnChangeGold(100)
-  }
-}
-namespace Service { //Static classes to manage functions or implementations of Modules, it uses Data's Assembly reference
-  public static Common {
-      public static void OnChangeGold(float gold) => Middleware<float>.Invoke_Publish(Data.Key.OnChangeGold, gold);
-  }
-}
-namespace Data { // Used to store the information used in this project (because is only useful for this project)
-  public static Key {
-    public const string OnChangeGold = "OnChangeGold" //Example of using MMA_STRING as key
-  }
-}
-```
-
 # Easy Mode Example 'MMA_ATTRIBUTE' && 'MMA_STRING'
 ```cs
 using MMA;
@@ -58,3 +31,30 @@ using MMA.Attribute;
   }
 ```
 
+# Performant Mode Example 'MMA_INT'
+```cs
+using MMA;
+namespace Core.MenuHeaderUIModule {
+  public sealed partial class MenuHeaderUIModule : Module {
+    [SerializeField] private Text text_gold = default;
+    protected override void OnSubscription(bool condition) => Middleware<float>.Subscribe_Publish(condition, Data.Key.OnChangeGold, OnChangeGold);
+    private void OnChangeGold(float gold) => text_gold.text = gold.ToString();
+  }
+}
+namespace Core.FakeModule{ //module to simulate the money obtention
+  public sealed partial class FakeModule : Module {  
+    protected override void OnSubscription(bool condition){}
+    void Start() =>Service.Common.OnChangeGold(100)
+  }
+}
+namespace Service { //Static classes to manage functions or implementations of Modules, it uses Data's Assembly reference
+  public static Common {
+      public static void OnChangeGold(float gold) => Middleware<float>.Invoke_Publish(Data.Key.OnChangeGold, gold);
+  }
+}
+namespace Data { // Used to store the information used in this project (because is only useful for this project)
+  public static Key {
+    public const int OnChangeGold = Middleware.indexMethodCount++;
+  }
+}
+```
