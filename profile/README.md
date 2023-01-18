@@ -38,3 +38,19 @@ namespace Data { // Used to store the information used in this project (because 
   }
 }
 ```
+
+# Example 'MMA_ATTRIBUTE' && 'MMA_STRING'
+```cs
+  public sealed partial class TestModule : Module
+  {
+    //Where subscribe all 'SubscribeAttribute' methods
+    protected override void OnSubscription(bool condition) => this.OnSubscriptionAttribute(condition); 
+
+    //Invoke a "0" key
+    private void Start() => "0".Invoke(); 
+    
+    //It's called by Middleware
+    [Subscribe("0")] private void Publish_0() => Debug.Log($"Publish 0"); 
+  }
+```
+
