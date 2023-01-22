@@ -17,18 +17,12 @@ Quick start guide:
 using MMA;
 using MMA.MiddlewareExtensions;
 using MMA.Attribute;
-  public sealed partial class TestModule : Module
-  {
-    //Where subscribe all 'SubscribeAttribute' methods
-    protected override void OnSubscription(bool condition) => this.OnSubscriptionAttribute(condition); 
-    
-    //It's called by Middleware
-    [Subscribe("KeyExample")] private void Publish_0() => Debug.Log($"Publish 0"); 
-  }
-  public sealed partial class TestMono : MonoBehaviour
-  {
-      private void Start() => "KeyExample".Invoke(); 
-  }
+public sealed partial class BootstrapModule : Module<BootstrapModule>
+{
+    private void Start()  => "Bootstrap.Test".Invoke();
+    [Subscribe("Bootstrap.Test")] private void OnTest() => "OnLog".Invoke(123);
+    [Subscribe("OnLog")] private void OnLog(int value) => Debug.Log($"Hello World! {value}");
+}
 ```
 
 # Performant Mode Example 'MMA_INT'
