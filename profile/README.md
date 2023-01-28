@@ -12,11 +12,9 @@ Quick start guide:
 2. Module is used as a federated manager in a Scene to handle a specification
 3. Application works as a entity of a Module of the scene, these are GameObject/s, children of the Module GameObject
 
-# Easy Mode Example 'MMA_ATTRIBUTE' && 'MMA_STRING'
+# Easy Mode Example 'MMA_ATTRIBUTE' && 'MMA_STRING' && 'MMA_EXTENSOR_MIDDLEWARE'
 ```cs
 using MMA;
-using MMA.MiddlewareExtensions;
-using MMA.Attribute;
 public sealed partial class BootstrapModule : Module<BootstrapModule>
 {
     private void Start()  => "Bootstrap.Test".Invoke();
