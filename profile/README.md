@@ -15,7 +15,7 @@ Quick start guide:
 # Easy Mode Example 'MMA_ATTRIBUTE' && 'MMA_STRING' && 'MMA_EXTENSOR_MIDDLEWARE'
 ```cs
 using MMA;
-public sealed partial class BootstrapModule : Module<BootstrapModule>
+public sealed partial class BootstrapModule : Module
 {
     private void Start()  => "Bootstrap.Test".Invoke();
     [Subscribe("Bootstrap.Test")] private void OnTest() => "OnLog".Invoke(123);
